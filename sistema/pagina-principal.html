@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Meu Ecommerce</title>
+    <!-- Link para o Normalize CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link para o CSS do Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link para o CSS personalizado -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Link para os ícones do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <section class="container">
+            <a class="navbar-brand" href="pagina-principal.html">Painel Administrativo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <section class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" id="dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="manageProducts"><i class="bi bi-box"></i> Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="manageOrders"><i class="bi bi-cart-check"></i> Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="manageUsers"><i class="bi bi-people"></i> Usuários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="settings"><i class="bi bi-gear"></i> Configurações</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="../index.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+                </ul>
+            </section>
+        </section>
+    </nav>
+
+    <!-- Container principal para carregar conteúdo dinamicamente -->
+    <section id="dynamicContent" class="container mt-4">
+        <!-- O conteúdo da página será carregado aqui -->
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 shadow-sm mt-5">
+        <p>&copy; 2025 Ecommerce. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts do Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- Script para carregar conteúdo dinâmico -->
+    <script>
+        // Função para carregar o conteúdo do arquivo selecionado
+        function loadPageContent(page) {
+            fetch(`content/${page}.html`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('dynamicContent').innerHTML = data;
+                })
+                .catch(error => console.error('Erro ao carregar o conteúdo:', error));
+        }
+
+        // Adiciona o evento de click para o item de Usuários
+        document.getElementById('manageUsers').addEventListener('click', function(event) {
+            event.preventDefault();  // Evita o comportamento padrão do link
+            loadPageContent('users'); // Carrega o conteúdo da página de cadastro de usuários
+        });
+
+        // Adiciona o evento de click para o item de Pedidos
+        document.getElementById('manageOrders').addEventListener('click', function(event) {
+            event.preventDefault();  // Evita o comportamento padrão do link
+            loadPageContent('orders'); // Carrega o conteúdo da página de gestão de pedidos
+        });
+
+        // Adiciona o evento de click para o item de Configurações
+        document.getElementById('settings').addEventListener('click', function(event) {
+            event.preventDefault();  // Evita o comportamento padrão do link
+            loadPageContent('config'); // Carrega o conteúdo da página de configurações
+        });
+
+        // Chama a função para carregar o conteúdo inicial (exemplo: banner) ao carregar a página
+        window.onload = function() {
+            loadPageContent('banner');  // Carrega o conteúdo da página de boas-vindas (banner)
+        };
+    </script>
+</body>
+
+</html>

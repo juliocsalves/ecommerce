@@ -1,33 +1,105 @@
 /* css/style.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-        background-color: white;
-        }
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
 
-        .navbar {
-            border-bottom: 1px solid #e0e0e0;
-            }
+.navbar {
+    border-bottom: 1px solid #e0e0e0;
+}
 
-            .banner {
-                background-color: #f8f8f8;
-                }
+.banner {
+    background-color: #f8f8f8;
+}
 
-                .card {
-                    border: none;
-                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                        }
+.card {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-                        .card-title {
-                            font-size: 1.2rem;
-                            }
+.card-title {
+    font-size: 1.2rem;
+}
 
-                            .card-text {
-                                font-size: 1rem;
-                                    color: #333;
-                                    }
+.card-text {
+    font-size: 1rem;
+    color: #333333;
+}
 
-                                    footer {
-                                        font-size: 0.9rem;
-                                            color: #777;
-                                            }
-                                            
+footer {
+    font-size: 0.9rem;
+    color: #777777;
+    text-align: center;    
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;         
+}
+
+footer p {
+    vertical-align: middle;
+    padding-top: 15px;
+}
+
+/* Quando o mouse passa sobre o item, o submenu se abre */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* efeito hover no dropdown menu */
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link i {
+    font-size: 1.0rem; /* Aumenta o tamanho dos ícones */
+}
+
+/* Efeito de hover no ícone */
+.nav-link:hover i {
+    color: #28a745; /* Verde quando passar o mouse */
+}
+
+/* Efeito de hover no link (navbar) */
+.nav-link {
+    transition: all 0.3s ease; /* Adiciona transição suave ao passar o mouse */
+}
+
+.nav-link:hover {
+    color: #28a745; /* Muda a cor do texto para azul ao passar o mouse */
+    background-color: #f0f0f0; /* Adiciona cor de fundo suave no hover */
+    border-radius: 5px; /* Adiciona borda arredondada nos links */
+}
+
+/* Efeito de hover nos itens do menu dropdown */
+.nav-item.dropdown .dropdown-menu a:hover {
+    background-color: #28a745; /* Muda o fundo do item do dropdown ao passar o mouse */
+    color: #fff; /* Muda a cor do texto para branco */
+}
+@media (max-width: 421px) and (max-height: 823px) {
+    .navbar {        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .navbar-nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+}

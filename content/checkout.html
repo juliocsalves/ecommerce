@@ -1,0 +1,45 @@
+<!-- content/checkout.html -->
+<div class="container mt-5">
+    <h2>Carrinho de Compras</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Exemplo de produto no carrinho -->
+            <tr>
+                <td>Produto 1</td>
+                <td>R$ 99,99</td>
+                <td>
+                    <input type="number" class="form-control" value="1" min="1" max="10">
+                </td>
+                <td>R$ 99,99</td>
+                <td>
+                    <button class="btn btn-danger">Remover</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Produto 2</td>
+                <td>R$ 149,90</td>
+                <td>
+                    <input type="number" class="form-control" value="1" min="1" max="10">
+                </td>
+                <td>R$ 149,90</td>
+                <td>
+                    <button class="btn btn-danger">Remover</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between">
+        <h3>Total: R$ 249,89</h3>
+        <button class="btn btn-success">Finalizar Compra</button>
+    </div>
+</div>
