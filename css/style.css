@@ -1,14 +1,14 @@
-/* css/style.css */
+/* Reset geral */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Incluir a fonte Playfair Display */
+/* Fonte principal */
 html, body {
-    height: 100%; /* Garantir que o body ocupe toda a altura */
-    font-family: 'Playfair Display', serif; /* Fonte elegante */
+    height: 100%;
+    font-family: 'Playfair Display', serif;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -19,175 +19,66 @@ html, body {
     border-bottom: 1px solid #e0e0e0;
 }
 
-/* Banner */
-.banner {
-    background-color: #f8f8f8;
-}
-
-/* Cartão */
-.card {
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-    font-size: 1.2rem;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #333333;
-}
-
-/* Botões Editar, Excluir e Detalhes */
-.btn-warning, .btn-danger, .btn-info {
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    margin-bottom:10px;
-    border-radius: 25px; /* Bordas arredondadas */
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+/* Navbar com subitens alinhado a direita */
+.navbar-nav{
     display: flex;
-    align-items: center;
-    justify-content: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto dentro do botão */
-    gap: 8px;
-    width: 6rem;    
+    align-items: flex-end;
 }
 
-/* Botão Editar */
-.editProduct {
-    background-color: #ffc107;
-    border: 1px solid #e0a800;
-    color: black;    
+/* Navbar Collapse */
+.navbar-collapse {
+    justify-content: flex-end; /* Alinha os itens do menu à direita */
 }
 
-.editProduct:hover {
-    background-color: #e0a800; /* Cor mais forte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efeito de sombra */
-    transform: scale(1.05); /* Leve aumento no tamanho */
-    font-weight: bold;
+/* Alinha o conteúdo da navbar à direita */
+.ms-auto {
+    margin-left: auto; /* Ajuste para o alinhamento à direita */
 }
 
-/* Botão Excluir */
-.deleteProduct {
-    background-color: #dc3545;
-    border: 1px solid #c82333;
-    color: black;
-}
-
-.deleteProduct:hover {
-    background-color: #c82333; /* Cor mais forte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efeito de sombra */
-    transform: scale(1.05); /* Leve aumento no tamanho */
-    color: black;
-    font-weight: bold;
-}
-
-/* Botão Detalhes */
-.viewDetails {
-    background-color: #17a2b8;
-    border: 1px solid #117a8b;
-    color: white;
-}
-
-.viewDetails:hover {
-    background-color: #117a8b; /* Cor mais forte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efeito de sombra */
-    transform: scale(1.05); /* Leve aumento no tamanho */
-    color: white;
-    font-weight: bold;
-}
-
-/* Ícones dentro dos botões */
-.btn i {
-    font-size: 1rem;
-}
-
-/* Hover nos ícones */
-.btn:hover i {
-    transform: translateX(5px); /* Desloca o ícone suavemente ao passar o mouse */
-}
-
-/* Adicionando animação ao passar o mouse no botão */
-.btn:hover {
-    cursor: pointer;
-}
-
-/* Footer fixo */
-footer {
-    font-size: 0.9rem;
-    margin-top: auto;  /* Faz o footer ir para o final da página */
-    color: #777777;
-    text-align: center;
-    background-color: #ffffff;
-    padding: 1rem;
-    width: 100%;
-    bottom: 0;
-    position: fixed; /* Para garantir que o footer fique na parte inferior */
-}
-
-/* Certificar que o conteúdo ocupa o espaço restante */
-#dynamicContent {
-    flex: 1; /* Faz o conteúdo ocupar o espaço disponível */
-}
-
-/* Quando o mouse passa sobre o item, o submenu se abre */
+/* Estilização do menu dropdown */
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-/* Efeito hover no dropdown menu */
 .nav-item.dropdown .dropdown-menu {
     display: none;
     transition: all 0.3s ease;
+    right: 0; /* Alinha o submenu à direita */
+    left: auto; /* Garante que ele não se estique para a esquerda */
 }
 
-/* Efeito para os ícones do menu */
+/* Alinha os itens dentro do submenu à direita */
+.nav-item.dropdown .dropdown-menu li {
+    text-align: right; /* Alinha os itens da lista à direita */
+}
+
+/* Ícones no menu */
 .nav-link i {
-    font-size: 1.0rem; /* Aumenta o tamanho dos ícones */
+    font-size: 1rem;
 }
 
-/* Efeito de hover no ícone */
-.nav-link:hover i {
-    color: #28a745; /* Verde quando passar o mouse */
-}
-
-/* Efeito de hover nos links (navbar) */
-.nav-link {
-    transition: all 0.3s ease; /* Adiciona transição suave ao passar o mouse */
-}
-
+/* Hover nos links */
 .nav-link:hover {
-    color: #28a745; /* Muda a cor do texto para verde ao passar o mouse */
-    background-color: #f0f0f0; /* Adiciona cor de fundo suave no hover */
-    border-radius: 5px; /* Adiciona borda arredondada nos links */
+    color: #28a745;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-/* Efeito de hover nos itens do menu dropdown */
 .nav-item.dropdown .dropdown-menu a:hover {
-    background-color: #28a745; /* Muda o fundo do item do dropdown ao passar o mouse */
-    color: #fff; /* Muda a cor do texto para branco */
+    background-color: #28a745;
+    color: #fff;
 }
 
-/* Responsividade para telas pequenas */
-@media (max-width: 421px) and (max-height: 823px) {
-    .navbar {        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .navbar-nav {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-item {
-        width: 100%;
-        text-align: center;
-    }
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    margin-top: auto;
+    color: #777;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 1rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }

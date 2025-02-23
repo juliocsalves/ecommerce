@@ -5,50 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Ecommerce Minimalista</title>
-    <!-- Link para o Normalize CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Link para o CSS do Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Link para o CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Link para os ícones do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Link para acessar mais fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-light d-flex flex-column" style="min-height: 100vh;">
-    <!-- Definir a altura mínima para ocupar toda a tela -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Ecommerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse ms-auto" id="navbarNav"> <!-- Alterado para ms-auto -->
+                <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="#" id="loadHome"> Home </a>
                     </li>
-
-                    <!-- Menu Dropdown para Produtos -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false"> Produtos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item loadCategory" href="#" data-category="categoria1">Categoria
-                                    1</a></li>
-                            <li><a class="dropdown-item loadCategory" href="#" data-category="categoria2">Categoria
-                                    2</a></li>
-                            <li><a class="dropdown-item loadCategory" href="#" data-category="categoria3">Categoria
-                                    3</a></li>
+                            <li><a class="dropdown-item loadCategory" href="#" data-category="categoria1">Categoria 1</a></li>
+                            <li><a class="dropdown-item loadCategory" href="#" data-category="categoria2">Categoria 2</a></li>
+                            <li><a class="dropdown-item loadCategory" href="#" data-category="categoria3">Categoria 3</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="loadAbout"> Sobre </a>
                     </li>
@@ -72,23 +60,16 @@
             </div>
         </div>
     </nav>
-
-    <!-- Container para os conteúdos dinâmicos -->
+    
     <div id="dynamic-content-container" class="flex-grow-1">
-        <!-- O conteúdo será carregado aqui -->
     </div>
 
-    <!-- Rodapé -->
     <footer class="bg-white text-center py-4 shadow-sm mt-auto">
         <p>&copy; 2025 Ecommerce. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Scripts do Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-    <!-- Link para o script JS app.js -->
     <script src="js/app.js"></script>
 </body>
-
 </html>
