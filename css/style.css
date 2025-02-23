@@ -14,13 +14,19 @@ html, body {
     flex-direction: column;
 }
 
+/* Garante que o conteúdo ocupe todo o espaço disponível sem sobrepor o footer */
+.container {
+    flex: 1;
+    padding-bottom: 3rem; /* Espaço para evitar sobreposição do footer */
+}
+
 /* Navbar */
 .navbar {
     border-bottom: 1px solid #e0e0e0;
 }
 
-/* Navbar com subitens alinhado a direita */
-.navbar-nav{
+/* Navbar com subitens alinhados à direita */
+.navbar-nav {
     display: flex;
     align-items: flex-end;
 }
@@ -49,7 +55,7 @@ html, body {
 
 /* Alinha os itens dentro do submenu à direita */
 .nav-item.dropdown .dropdown-menu li {
-    text-align: right; /* Alinha os itens da lista à direita */
+    text-align: right;
 }
 
 /* Ícones no menu */
@@ -70,10 +76,19 @@ html, body {
     color: #fff;
 }
 
-/* Footer */
+/* Ajusta a altura do conteúdo dos cards */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Garante que o texto fique centralizado */
+    height: 100%;
+}
+
+/* Footer fixo ajustado */
 footer {
     font-size: 0.9rem;
-    margin-top: auto;
     color: #777;
     text-align: center;
     background-color: #ffffff;
@@ -81,4 +96,6 @@ footer {
     width: 100%;
     position: fixed;
     bottom: 0;
+    left: 0;
+    height: 60px; /* Define uma altura fixa */
 }
