@@ -1,0 +1,143 @@
+<section class="container">
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h2 class="m-0">Gerenciamento de Produtos</h2>
+        <div class="d-flex align-items-center">
+            <!-- Dropdown para Filtrar por Categoria -->
+            <div class="dropdown me-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-funnel"></i> Filtrar por Categoria
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <li><a class="dropdown-item" href="#">Categoria A</a></li>
+                    <li><a class="dropdown-item" href="#">Categoria B</a></li>
+                    <li><a class="dropdown-item" href="#">Categoria C</a></li>
+                </ul>
+            </div>
+
+            <!-- Botão Adicionar Produto -->
+            <button class="btn btn-success" id="addProduct">
+                <i class="bi bi-plus-circle"></i> Adicionar Produto
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabela de Produtos -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Imagens</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Produto Exemplo</td>
+                <td>R$ 100,00</td>
+                <td>Categoria A</td>
+                <td><img src="https://cofebraleomundodasferramentas.wordpress.com/wp-content/uploads/2019/08/produto-sem-foto.jpg" alt="Imagem Produto" width="50"></td>
+                <td>Produto exemplo da categoria A com descrição curta.</td>
+                <td>
+                    <button class="btn btn-warning btn-sm editProduct ">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm deleteProduct">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Produto Beta</td>
+                <td>R$ 150,00</td>
+                <td>Categoria B</td>
+                <td><img src="https://cofebraleomundodasferramentas.wordpress.com/wp-content/uploads/2019/08/produto-sem-foto.jpg" alt="Imagem Produto" width="50"></td>
+                <td>Produto Beta da categoria B com descrição detalhada.</td>
+                <td>
+                    <button class="btn btn-warning btn-sm editProduct">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm deleteProduct">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Produto Gamma</td>
+                <td>R$ 200,00</td>
+                <td>Categoria C</td>
+                <td><img src="https://cofebraleomundodasferramentas.wordpress.com/wp-content/uploads/2019/08/produto-sem-foto.jpg" alt="Imagem Produto" width="50"></td>
+                <td>Produto Gamma, ideal para quem busca qualidade na categoria C.</td>
+                <td>
+                    <button class="btn btn-warning btn-sm editProduct produtcEdit">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm deleteProduct productDelete">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Produto Delta</td>
+                <td>R$ 250,00</td>
+                <td>Categoria A</td>
+                <td><img src="https://cofebraleomundodasferramentas.wordpress.com/wp-content/uploads/2019/08/produto-sem-foto.jpg" alt="Imagem Produto" width="50"></td>
+                <td>Produto Delta para um desempenho superior na categoria A.</td>
+                <td>
+                    <button class="btn btn-warning btn-sm editProduct produtcEdit">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm deleteProduct productDelete">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Produto Epsilon</td>
+                <td>R$ 300,00</td>
+                <td>Categoria B</td>
+                <td><img src="https://cofebraleomundodasferramentas.wordpress.com/wp-content/uploads/2019/08/produto-sem-foto.jpg" alt="Imagem Produto" width="50"></td>
+                <td>Produto Epsilon com características avançadas da categoria B.</td>
+                <td>
+                    <button class="btn btn-warning btn-sm editProduct">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm deleteProduct">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<script>
+    document.getElementById('addProduct').addEventListener('click', function () {
+        alert('Função para adicionar produto ainda não implementada!');
+    });
+
+    document.querySelectorAll('.editProduct').forEach(button => {
+        button.addEventListener('click', function () {
+            alert('Função para editar produto ainda não implementada!');
+        });
+    });
+
+    document.querySelectorAll('.deleteProduct').forEach(button => {
+        button.addEventListener('click', function () {
+            alert('Função para excluir produto ainda não implementada!');
+        });
+    });
+
+    // Lógica de Filtro (Exemplo)
+    document.getElementById('filterProducts').addEventListener('click', function () {
+        alert('Função de filtro ainda não implementada!');
+    });
+</script>

@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Ecommerce Minimalista</title>
     <!-- Link para o Normalize CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Link para o CSS do Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link para o CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Link para os ícones do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Link para acessar mais fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-light">
-
+<body class="bg-light d-flex flex-column" style="min-height: 100vh;">
+    <!-- Definir a altura mínima para ocupar toda a tela -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#">Ecommerce</a>
+            <a class="navbar-brand" href="index.html">Ecommerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
@@ -27,16 +31,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" id="loadHome">
-                            <i class="bi bi-house-door"></i> Home
-                        </a>
+                        <a class="nav-link" href="#" id="loadHome"> Home </a>
                     </li>
 
                     <!-- Menu Dropdown para Produtos -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-box-seam"></i> Produtos
+                            data-bs-toggle="dropdown" aria-expanded="false"> Produtos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item loadCategory" href="#" data-category="categoria1">Categoria
@@ -49,19 +50,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadAbout">
-                            <i class="bi bi-info-circle"></i> Sobre
-                        </a>
+                        <a class="nav-link" href="#" id="loadAbout"> Sobre </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadContacts">
-                            <i class="bi bi-telephone"></i> Contato
-                        </a>
+                        <a class="nav-link" href="#" id="loadContacts"> Contato </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadRegister">
-                            <i class="bi bi-person-plus"></i> Cadastro
-                        </a>
+                        <a class="nav-link" href="#" id="loadRegister"> Cadastro </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="loadLogin">
@@ -70,7 +65,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="loadCheckout">
-                            <i class="bi bi-cart"></i> Carrinho
+                            <i class="bi bi-cart"></i>
                         </a>
                     </li>
                 </ul>
@@ -79,10 +74,12 @@
     </nav>
 
     <!-- Container para os conteúdos dinâmicos -->
-    <div id="dynamic-content-container"></div>
+    <div id="dynamic-content-container" class="flex-grow-1">
+        <!-- O conteúdo será carregado aqui -->
+    </div>
 
     <!-- Rodapé -->
-    <footer class="bg-white text-center py-4 shadow-sm">
+    <footer class="bg-white text-center py-4 shadow-sm mt-auto">
         <p>&copy; 2025 Ecommerce. Todos os direitos reservados.</p>
     </footer>
 
@@ -91,7 +88,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <!-- Link para o script JS app.js -->
-    <script src="js/app.js"></script> 
+    <script src="js/app.js"></script>
 </body>
 
 </html>

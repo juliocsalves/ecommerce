@@ -5,19 +5,26 @@
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
+/* Incluir a fonte Playfair Display */
+html, body {
+    height: 100%; /* Garantir que o body ocupe toda a altura */
+    font-family: 'Playfair Display', serif; /* Fonte elegante */
     background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Navbar */
 .navbar {
     border-bottom: 1px solid #e0e0e0;
 }
 
+/* Banner */
 .banner {
     background-color: #f8f8f8;
 }
 
+/* Cartão */
 .card {
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -32,19 +39,97 @@ body {
     color: #333333;
 }
 
-footer {
-    font-size: 0.9rem;
-    color: #777777;
-    text-align: center;    
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #ffffff;         
+/* Botões Editar, Excluir e Detalhes */
+.btn-warning, .btn-danger, .btn-info {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom:10px;
+    border-radius: 25px; /* Bordas arredondadas */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    gap: 8px;
+    width: 6rem;    
 }
 
-footer p {
-    vertical-align: middle;
-    padding-top: 15px;
+/* Botão Editar */
+.editProduct {
+    background-color: #ffc107;
+    border: 1px solid #e0a800;
+    color: black;    
+}
+
+.editProduct:hover {
+    background-color: #e0a800; /* Cor mais forte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efeito de sombra */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+    font-weight: bold;
+}
+
+/* Botão Excluir */
+.deleteProduct {
+    background-color: #dc3545;
+    border: 1px solid #c82333;
+    color: black;
+}
+
+.deleteProduct:hover {
+    background-color: #c82333; /* Cor mais forte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efeito de sombra */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+    color: black;
+    font-weight: bold;
+}
+
+/* Botão Detalhes */
+.viewDetails {
+    background-color: #17a2b8;
+    border: 1px solid #117a8b;
+    color: white;
+}
+
+.viewDetails:hover {
+    background-color: #117a8b; /* Cor mais forte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efeito de sombra */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+    color: white;
+    font-weight: bold;
+}
+
+/* Ícones dentro dos botões */
+.btn i {
+    font-size: 1rem;
+}
+
+/* Hover nos ícones */
+.btn:hover i {
+    transform: translateX(5px); /* Desloca o ícone suavemente ao passar o mouse */
+}
+
+/* Adicionando animação ao passar o mouse no botão */
+.btn:hover {
+    cursor: pointer;
+}
+
+/* Footer fixo */
+footer {
+    font-size: 0.9rem;
+    margin-top: auto;  /* Faz o footer ir para o final da página */
+    color: #777777;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 1rem;
+    width: 100%;
+    bottom: 0;
+    position: fixed; /* Para garantir que o footer fique na parte inferior */
+}
+
+/* Certificar que o conteúdo ocupa o espaço restante */
+#dynamicContent {
+    flex: 1; /* Faz o conteúdo ocupar o espaço disponível */
 }
 
 /* Quando o mouse passa sobre o item, o submenu se abre */
@@ -52,12 +137,13 @@ footer p {
     display: block;
 }
 
-/* efeito hover no dropdown menu */
+/* Efeito hover no dropdown menu */
 .nav-item.dropdown .dropdown-menu {
     display: none;
     transition: all 0.3s ease;
 }
 
+/* Efeito para os ícones do menu */
 .nav-link i {
     font-size: 1.0rem; /* Aumenta o tamanho dos ícones */
 }
@@ -67,13 +153,13 @@ footer p {
     color: #28a745; /* Verde quando passar o mouse */
 }
 
-/* Efeito de hover no link (navbar) */
+/* Efeito de hover nos links (navbar) */
 .nav-link {
     transition: all 0.3s ease; /* Adiciona transição suave ao passar o mouse */
 }
 
 .nav-link:hover {
-    color: #28a745; /* Muda a cor do texto para azul ao passar o mouse */
+    color: #28a745; /* Muda a cor do texto para verde ao passar o mouse */
     background-color: #f0f0f0; /* Adiciona cor de fundo suave no hover */
     border-radius: 5px; /* Adiciona borda arredondada nos links */
 }
@@ -83,6 +169,8 @@ footer p {
     background-color: #28a745; /* Muda o fundo do item do dropdown ao passar o mouse */
     color: #fff; /* Muda a cor do texto para branco */
 }
+
+/* Responsividade para telas pequenas */
 @media (max-width: 421px) and (max-height: 823px) {
     .navbar {        
         display: flex;
