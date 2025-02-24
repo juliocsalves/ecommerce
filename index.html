@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .navbar {
+            position: relative; /* Garante que o z-index será aplicado corretamente */
+            z-index: 1050; /* Um valor alto para garantir que a navbar ficará por cima dos outros elementos */
+        }
+
+        .navbar-collapse {
+            z-index: 1050; /* Pode ser necessário para o caso da navbar colapsada também */
+        }
+    </style>
 </head>
 
 <body class="bg-light d-flex flex-column" style="min-height: 100vh;">
@@ -51,29 +62,6 @@
     <footer class="bg-white text-center py-4 shadow-sm mt-auto">
         <p>&copy; 2025 Ecommerce. Todos os direitos reservados.</p>
     </footer>
-
-    <!-- Fechar dropdown automaticamente ao clicar em um item -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Fecha o menu dropdown quando um item for clicado
-            document.querySelectorAll('.dropdown-item').forEach(function (item) {
-                item.addEventListener('click', function () {
-                    let dropdownMenu = this.closest('.dropdown-menu');
-                    let dropdownToggle = dropdownMenu.previousElementSibling;
-                    let navbarCollapse = document.querySelector('.navbar-collapse');
-
-                    if (dropdownToggle && dropdownToggle.classList.contains('dropdown-toggle')) {
-                        bootstrap.Dropdown.getInstance(dropdownToggle).hide();
-                    }
-
-                    // Fecha o menu sanduíche ao clicar em um item do dropdown
-                    if (navbarCollapse.classList.contains('show')) {
-                        new bootstrap.Collapse(navbarCollapse).hide();
-                    }
-                });
-            });
-        });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

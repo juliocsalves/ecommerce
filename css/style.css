@@ -28,6 +28,8 @@ html, body {
 /* Navbar */
 .navbar {
     border-bottom: 1px solid #e0e0e0;
+    position: relative; /* Garante que o z-index será aplicado corretamente */
+    z-index: 1050; /* Um valor alto para garantir que a navbar ficará por cima dos outros elementos */
 }
 
 /* Navbar com subitens alinhados à direita */
@@ -39,6 +41,7 @@ html, body {
 /* Navbar Collapse */
 .navbar-collapse {
     justify-content: flex-end; /* Alinha os itens do menu à direita */
+    z-index: 1050; /* Pode ser necessário para o caso da navbar colapsada também */
 }
 
 /* Alinha o conteúdo da navbar à direita */
@@ -66,6 +69,11 @@ html, body {
 /* Ícones no menu */
 .nav-link i {
     font-size: 1rem;
+}
+
+/* diminui o tamanhho da linha dos subitens do menu sanduiche */
+.dropdown-item{
+    width: 84%;
 }
 
 /* Hover nos links */
