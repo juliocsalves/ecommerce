@@ -20,6 +20,11 @@ html, body {
     padding-bottom: 2.5rem; /* Espaço para evitar sobreposição do footer */
 }
 
+/* Centraliza o form de login */
+.container-login{
+    flex: none;
+}
+
 /* Navbar */
 .navbar {
     border-bottom: 1px solid #e0e0e0;
@@ -80,7 +85,7 @@ html, body {
     display: flex;
     flex-wrap: inherit;    
     justify-content: space-between;
-    height: 2rem;
+    height: 2.75rem;
     align-items: baseline;
 }
 
@@ -92,6 +97,11 @@ html, body {
     align-items: center; /* Centraliza horizontalmente */
     text-align: center; /* Garante que o texto fique centralizado */
     height: 100%;
+}
+
+/* Aumenta o espaço do card-text */
+.card-text{
+    height: 7rem;
 }
 
 /* Footer fixo ajustado */

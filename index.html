@@ -22,54 +22,62 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse ms-auto" id="navbarNav"> <!-- Alterado para ms-auto -->
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" id="loadHome"> Home </a>
+                        <a class="nav-link" href="#" id="loadHome">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> Produtos
-                        </a>
+                            data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item loadCategory" href="#" data-category="categoria1">Categoria 1</a></li>
                             <li><a class="dropdown-item loadCategory" href="#" data-category="categoria2">Categoria 2</a></li>
                             <li><a class="dropdown-item loadCategory" href="#" data-category="categoria3">Categoria 3</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadAbout"> Sobre </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadContacts"> Contato </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadRegister"> Cadastro </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadLogin">
-                            <i class="bi bi-person"></i> Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="loadCheckout">
-                            <i class="bi bi-cart"></i>
-                        </a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="loadAbout">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="loadContacts">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="loadRegister">Cadastro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="loadLogin"><i class="bi bi-person"></i> Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="loadCheckout"><i class="bi bi-cart"></i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <div id="dynamic-content-container" class="flex-grow-1">
-    </div>
+
+    <div id="dynamic-content-container" class="flex-grow-1"></div>
 
     <footer class="bg-white text-center py-4 shadow-sm mt-auto">
         <p>&copy; 2025 Ecommerce. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Fechar dropdown automaticamente ao clicar em um item -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fecha o menu dropdown quando um item for clicado
+            document.querySelectorAll('.dropdown-item').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    let dropdownMenu = this.closest('.dropdown-menu');
+                    let dropdownToggle = dropdownMenu.previousElementSibling;
+                    let navbarCollapse = document.querySelector('.navbar-collapse');
+
+                    if (dropdownToggle && dropdownToggle.classList.contains('dropdown-toggle')) {
+                        bootstrap.Dropdown.getInstance(dropdownToggle).hide();
+                    }
+
+                    // Fecha o menu sanduíche ao clicar em um item do dropdown
+                    if (navbarCollapse.classList.contains('show')) {
+                        new bootstrap.Collapse(navbarCollapse).hide();
+                    }
+                });
+            });
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
