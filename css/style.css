@@ -1,127 +1,72 @@
-/* Reset geral */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* Importação da fonte */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
-/* Fonte principal */
-html, body {
-    height: 100%;
+/* Reset geral */
+body {
     font-family: 'Playfair Display', serif;
-    background-color: #ffffff;
+    background-color: #f8f9fa; /* bg-light */
     display: flex;
     flex-direction: column;
-}
-
-/* Garante que o conteúdo ocupe todo o espaço disponível sem sobrepor o footer */
-.container {
-    flex: 1;
-    padding-bottom: 2.5rem; /* Espaço para evitar sobreposição do footer */
-}
-
-/* Centraliza o form de login */
-.container-login{
-    flex: none;
+    min-height: 100vh;
 }
 
 /* Navbar */
 .navbar {
-    border-bottom: 1px solid #e0e0e0;
-    position: relative; /* Garante que o z-index será aplicado corretamente */
-    z-index: 1050; /* Um valor alto para garantir que a navbar ficará por cima dos outros elementos */
-}
-
-/* Navbar com subitens alinhados à direita */
-.navbar-nav {
-    display: flex;
-    align-items: flex-end;
-}
-
-/* Navbar Collapse */
-.navbar-collapse {
-    justify-content: flex-end; /* Alinha os itens do menu à direita */
-    z-index: 1050; /* Pode ser necessário para o caso da navbar colapsada também */
-}
-
-/* Alinha o conteúdo da navbar à direita */
-.ms-auto {
-    margin-left: auto; /* Ajuste para o alinhamento à direita */
-}
-
-/* Estilização do menu dropdown */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.nav-item.dropdown .dropdown-menu {
-    display: none;
-    transition: all 0.3s ease;
-    right: 0; /* Alinha o submenu à direita */
-    left: auto; /* Garante que ele não se estique para a esquerda */
-}
-
-/* Alinha os itens dentro do submenu à direita */
-.nav-item.dropdown .dropdown-menu li {
-    text-align: right;
-}
-
-/* Ícones no menu */
-.nav-link i {
-    font-size: 1rem;
-}
-
-/* diminui o tamanhho da linha dos subitens do menu sanduiche */
-.dropdown-item{
-    width: 84%;
-}
-
-/* Hover nos links */
-.nav-link:hover {
-    color: #28a745;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.nav-item.dropdown .dropdown-menu a:hover {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
-    display: flex;
-    flex-wrap: inherit;    
-    justify-content: space-between;
-    height: 2.75rem;
-    align-items: baseline;
-}
-
-/* Ajusta a altura do conteúdo dos cards */
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Garante que o texto fique centralizado */
-    height: 100%;
-}
-
-/* Aumenta o espaço do card-text */
-.card-text{
-    height: 7rem;
-}
-
-/* Footer fixo ajustado */
-footer {
-    font-size: 0.9rem;
-    color: #777;
-    text-align: center;
+    font-size: 1.2rem; /* Aumenta a fonte da navbar */
     background-color: #ffffff;
-    padding: 1rem;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 4rem; /* Define uma altura fixa */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.5rem; /* Aumenta um pouco a altura */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    font-size: 1.5rem; /* Aumenta a fonte do nome da marca */
+    font-weight: bold;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+    margin-right: 10px; /* Espaçamento entre links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    border-radius: 0.5rem;
+}
+
+/* Ícones na navbar */
+.navbar-nav .nav-link i {
+    font-size: 1.3rem;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 1rem; /* Ajusta o tamanho da fonte para telas menores */
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem; /* Ajusta o tamanho da fonte da marca */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem; /* Ajusta o tamanho da fonte dos links */
+        padding: 8px 12px;
+    }
 }

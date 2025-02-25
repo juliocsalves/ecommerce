@@ -1,71 +1,63 @@
-// app.js
+document.addEventListener("DOMContentLoaded", function () {
+    const contentContainer = document.getElementById("dynamic-content-container");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
 
-// Função para carregar conteúdo dinâmico
-function loadContent(pages, category = '') {
-    document.getElementById('dynamic-content-container').innerHTML = '';
+    // Função para carregar conteúdo dinâmico
+    function loadContent(pages, category = "") {
+        contentContainer.innerHTML = ""; // Limpa apenas o conteúdo dinâmico
 
-    if (Array.isArray(pages)) {
-        pages.forEach(function (page) {
-            fetch(`content/${page}.html`)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('dynamic-content-container').innerHTML += data;
+        const pagesArray = Array.isArray(pages) ? pages : [pages]; // Garante que seja um array
+
+        pagesArray.forEach(page => {
+            let url = `content/${page}.html`;
+
+            if (page === "home") {
+                loadContent(["banner", "products"]); // Carrega apenas os conteúdos dinâmicos da home
+                return;
+            }
+
+            if (page === "products" && category) {
+                url = `content/products.html?category=${category}`;
+            }
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Erro ao carregar ${url}`);
+                    return response.text();
                 })
-                .catch(error => console.error('Erro ao carregar conteúdo:', error));
+                .then(data => {
+                    contentContainer.innerHTML += data;
+                })
+                .catch(error => console.error("Erro ao carregar conteúdo:", error));
         });
-    } else {
-        let url = `content/${pages}.html`;
-        if (category) {
-            url = `content/products.html?category=${category}`; // Passando a categoria para o link
-        }
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('dynamic-content-container').innerHTML = data;
-            })
-            .catch(error => console.error('Erro ao carregar conteúdo:', error));
     }
-}
 
-// 📌 Carregar categoria específica ao clicar no dropdown do menu Produtos
-document.querySelectorAll('.loadCategory').forEach(item => {
-    item.addEventListener('click', function (event) {
+    // Carregar conteúdo inicial da home
+    loadContent(["banner", "products"]);
+
+    // Delegação de eventos para links de navegação
+    document.body.addEventListener("click", function (event) {
+        const target = event.target.closest(".nav-link, .dropdown-item"); // Captura cliques nos links da navbar
+        if (!target) return;
+
         event.preventDefault();
-        const category = this.getAttribute('data-category'); // Pega o valor da categoria
-        loadContent('products', category); // Passa a categoria para o conteúdo
+        const page = target.getAttribute("id")?.replace("load", "").toLowerCase();
+        const category = target.getAttribute("data-category");
+
+        if (page) loadContent(page);
+        if (category) loadContent("products", category);
+
+        // Fecha a navbar se não for o menu "Produtos"
+        if (!target.classList.contains("dropdown-toggle")) {
+            navbarCollapse.classList.remove("show");
+        }
     });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    loadContent(['banner', 'products']);
-});
-
-document.getElementById('loadHome').addEventListener('click', function (event) {
-    event.preventDefault();
-    loadContent(['banner', 'products']);
-});
-
-document.getElementById('loadAbout').addEventListener('click', function (event) {
-    event.preventDefault();
-    loadContent('about');
-});
-
-document.getElementById('loadContacts').addEventListener('click', function (event) {
-    event.preventDefault();
-    loadContent('contacts');
-});
-
-document.getElementById('loadLogin').addEventListener('click', function (event) {
-    event.preventDefault();
-    loadContent('login');
-});
-
-document.getElementById('loadRegister').addEventListener('click', function (event) {
-    event.preventDefault();
-    loadContent('register');
-});
-
-document.getElementById('loadCheckout').addEventListener('click', function (event) {
-    event.preventDefault();
-    loadContent('checkout');
+    // Fecha a navbar ao clicar fora dela
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".navbar")) {
+            navbarCollapse.classList.remove("show");
+        }
+    });
 });
