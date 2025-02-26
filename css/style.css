@@ -60,6 +60,7 @@ html, body {
 /* Main */
 main {
     flex: 1;
+    padding-bottom: 60px; /* Para garantir que o conteúdo não fique escondido atrás do footer */
 }
 
 /* Footer */
@@ -72,6 +73,7 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    height: 60px; /* Ajustar a altura do footer conforme necessário */
 }
 
 html, body {
@@ -82,10 +84,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-main {
-    flex-grow: 1;
 }
 
 /* Responsividade para telas menores */
@@ -120,4 +118,3 @@ main {
     visibility: visible;
     transform: translateY(0);
 }
-
