@@ -2,25 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 /* Reset geral */
-body {
-    font-family: 'Playfair Display', serif;
-    background-color: #f8f9fa; /* bg-light */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    font-family: 'Playfair Display', serif;
+    background-color: #f8f9fa; /* bg-light */
 }
 
 /* Navbar */
 .navbar {
-    font-size: 1.2rem; /* Aumenta a fonte da navbar */
+    font-size: 1.2rem;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 1.5rem; /* Aumenta um pouco a altura */
+    padding: 1rem 1.5rem;
 }
 
 /* Navbar Brand */
 .navbar-brand {
-    font-size: 1.5rem; /* Aumenta a fonte do nome da marca */
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -28,7 +30,7 @@ body {
 .navbar-nav .nav-link {
     padding: 10px 15px;
     transition: color 0.3s ease-in-out;
-    margin-right: 10px; /* Espaçamento entre links */
+    margin-right: 10px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -38,21 +40,27 @@ body {
 /* Dropdown */
 .dropdown-menu {
     border-radius: 0.5rem;
-    opacity: 0; /* Oculta o submenu inicialmente */
+    opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out; /* Adicionada a transição */
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 /* Exibição do submenu quando ativo */
 .nav-item.dropdown:hover .dropdown-menu {
-    opacity: 1; /* Torna visível */
+    opacity: 1;
     visibility: visible;
-    color: #007bff; /* Cor alterada ao abrir o submenu */
+    color: #007bff;
 }
 
 /* Ícones na navbar */
 .navbar-nav .nav-link i {
     font-size: 1.3rem;
+}
+
+/* Main */
+main {
+    flex: 1;
+    padding-bottom: 60px; /* Para garantir que o conteúdo não fique escondido atrás do footer */
 }
 
 /* Footer */
@@ -61,26 +69,35 @@ footer {
     text-align: center;
     padding: 1rem 0;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: auto;
+    width: 100%;
     position: fixed;
     bottom: 0;
-    width: 100%;
-    position: sticky;
+    left: 0;
+    height: 60px !important; /* Ajustar a altura do footer conforme necessário */
+    z-index: 10 !important; /* Garante que o footer ficará acima do conteúdo */
+}
+
+/* Garantir que o body ocupe pelo menos 100vh */
+html, body {
+    overflow-x: hidden;
+    min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .navbar {
-        font-size: 1rem; /* Ajusta o tamanho da fonte para telas menores */
+        font-size: 1rem;
         padding: 0.75rem 1rem;
     }
 
     .navbar-brand {
-        font-size: 1.3rem; /* Ajusta o tamanho da fonte da marca */
+        font-size: 1.3rem;
     }
 
     .navbar-nav .nav-link {
-        font-size: 1rem; /* Ajusta o tamanho da fonte dos links */
+        font-size: 1rem;
         padding: 8px 12px;
     }
 }
@@ -88,15 +105,15 @@ footer {
 /* Dropdown */
 .dropdown-menu {
     border-radius: 0.5rem;
-    opacity: 0; /* Oculta o submenu inicialmente */
+    opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px); /* Move o submenu um pouco para cima para suavizar */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Transição suavizada */
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 /* Exibição do submenu quando ativo */
 .nav-item.dropdown:hover .dropdown-menu {
-    opacity: 1; /* Torna visível */
+    opacity: 1;
     visibility: visible;
-    transform: translateY(0); /* Move para a posição normal */
+    transform: translateY(0);
 }
