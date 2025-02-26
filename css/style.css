@@ -81,6 +81,8 @@ footer {
 html, body {
     overflow-x: hidden;
     min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Responsividade para telas menores */
