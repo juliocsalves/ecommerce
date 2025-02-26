@@ -74,6 +74,14 @@ footer {
     left: 0;
 }
 
+html {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+}
+
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .navbar {
@@ -106,5 +114,3 @@ footer {
     visibility: visible;
     transform: translateY(0);
 }
-
-
