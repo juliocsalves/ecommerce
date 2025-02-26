@@ -74,16 +74,13 @@ footer {
     bottom: 0;
     left: 0;
     height: 60px; /* Ajustar a altura do footer conforme necessário */
+    z-index: 10; /* Garante que o footer ficará acima do conteúdo */
 }
 
+/* Garantir que o body ocupe pelo menos 100vh */
 html, body {
     overflow-x: hidden;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
 }
 
 /* Responsividade para telas menores */
