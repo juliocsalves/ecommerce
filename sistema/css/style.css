@@ -31,3 +31,44 @@ footer {
     padding: 1rem 0;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.container-config{
+    width: 60%;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 320px) {
+    .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .toolbar .btn {
+        flex: 1 1 auto;
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .toolbar .btn-group {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .toolbar .btn-group .dropdown-toggle {
+        width: 100%;
+    }
+}
+
+/* Ajustes para mobile */
+@media (max-width: 320px) {
+    .container-config p {
+        font-size: 14px;        
+        padding: 0 10px;        
+    }
+
+    .container-config {        
+        width: 100%;
+    }
+}
