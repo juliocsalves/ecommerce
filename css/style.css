@@ -38,6 +38,16 @@ body {
 /* Dropdown */
 .dropdown-menu {
     border-radius: 0.5rem;
+    opacity: 0; /* Oculta o submenu inicialmente */
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out; /* Adicionada a transição */
+}
+
+/* Exibição do submenu quando ativo */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1; /* Torna visível */
+    visibility: visible;
+    color: #007bff; /* Cor alterada ao abrir o submenu */
 }
 
 /* Ícones na navbar */
@@ -52,6 +62,10 @@ footer {
     padding: 1rem 0;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    position: sticky;
 }
 
 /* Responsividade para telas menores */
@@ -69,4 +83,20 @@ footer {
         font-size: 1rem; /* Ajusta o tamanho da fonte dos links */
         padding: 8px 12px;
     }
+}
+
+/* Dropdown */
+.dropdown-menu {
+    border-radius: 0.5rem;
+    opacity: 0; /* Oculta o submenu inicialmente */
+    visibility: hidden;
+    transform: translateY(-10px); /* Move o submenu um pouco para cima para suavizar */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Transição suavizada */
+}
+
+/* Exibição do submenu quando ativo */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1; /* Torna visível */
+    visibility: visible;
+    transform: translateY(0); /* Move para a posição normal */
 }
