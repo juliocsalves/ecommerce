@@ -1,57 +1,48 @@
 <section class="container mt-4 container-config">
-    <h2>Configurações</h2>
-    <p>Aqui você pode ajustar as configurações do painel administrativo.</p>
-    
+    <article class="alert alert-info">
+        <h2>Configurações</h2>
+        <p>Aqui você pode ajustar as configurações do painel administrativo.</p>
+    </article>
+
+
     <!-- Configuração do Nome do Site -->
     <article class="mb-3">
         <label for="siteName" class="form-label">Nome do site</label>
         <input type="text" class="form-control" id="siteName" placeholder="Nome do site">
     </article>
-    
+
     <!-- Configuração do E-mail de Contato -->
     <article class="mb-3">
         <label for="siteEmail" class="form-label">E-mail de contato</label>
         <input type="email" class="form-control" id="siteEmail" placeholder="E-mail de contato" required>
     </article>
-    
-    <!-- Área de Mensagem com Barra de Formatação -->
+
+    <!-- Configuração do Título de Boas-vindas -->
+    <article class="mb-3">
+        <label for="welcomeTitle" class="form-label">Título de Boas-vindas</label>
+        <input type="text" class="form-control" id="welcomeTitle" placeholder="Digite o título de boas-vindas">
+    </article>
+
+
+    <!-- Área de Mensagem SEM Barra de Formatação -->
     <article class="mb-3">
         <label for="siteMessage" class="form-label">Mensagem de Boas-vindas</label>
-        <div class="toolbar bg-light p-2 border rounded-top">
-            <button class="btn btn-secondary" onclick="formatText('bold')"><i class="bi bi-type-bold"></i></button>
-            <button class="btn btn-secondary" onclick="formatText('italic')"><i class="bi bi-type-italic"></i></button>
-            <button class="btn btn-secondary" onclick="formatText('underline')"><i class="bi bi-type-underline"></i></button>
-            <button class="btn btn-secondary" onclick="formatText('insertUnorderedList')"><i class="bi bi-list-ul"></i></button>
-            <div class="btn-group">
-                <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Tamanho do Título</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" onclick="formatText('formatBlock', '<h1>')"><h1>Título 1</h1></a></li>
-                    <li><a class="dropdown-item" href="#" onclick="formatText('formatBlock', '<h2>')"><h2>Título 2</h1></a></li>
-                    <li><a class="dropdown-item" href="#" onclick="formatText('formatBlock', '<h3>')"><h3>Título 3</h1></a></li>
-                    <li><a class="dropdown-item" href="#" onclick="formatText('formatBlock', '<h4>')"><h4>Título 4</h1></a></li>
-                    <li><a class="dropdown-item" href="#" onclick="formatText('formatBlock', '<h5>')"><h5>Título 5</h1></a></li>
-                    <li><a class="dropdown-item" href="#" onclick="formatText('formatBlock', '<h6>')"><h6>Título 6</h1></a></li>
-                </ul>
-            </div>
-            <button class="btn btn-secondary" onclick="formatText('justifyLeft')"><i class="bi bi-text-left"></i></button>
-            <button class="btn btn-secondary" onclick="formatText('justifyCenter')"><i class="bi bi-text-center"></i></button>
-            <button class="btn btn-secondary" onclick="formatText('justifyRight')"><i class="bi bi-text-right"></i></button>
-            <button class="btn btn-secondary" onclick="formatText('justifyFull')"><i class="bi bi-justify"></i></button>
-        </div>
-        <textarea class="form-control w-100 border-top-0" id="siteMessage" rows="5" placeholder="Digite sua mensagem..."></textarea>
+        <textarea id="siteMessage" class="form-control w-100 p-2" style="min-height: 100px;"
+            placeholder="Digite sua mensagem..."></textarea>
     </article>
-    
+
     <!-- Upload de Logotipo -->
     <article class="mb-3">
         <label for="siteLogo" class="form-label">Logotipo</label>
         <input type="file" class="form-control" id="siteLogo" accept="image/*">
     </article>
-    
-    <button class="btn btn-primary">Salvar alterações</button>
-</section>
 
-<script>
-    function formatText(command, value = null) {
-        document.execCommand(command, false, value);
-    }
-</script>
+    <button class="btn btn-primary">Salvar alterações</button>
+
+
+    <!-- Conteúdo carregado dinamicamente -->
+    <div id="configData">
+        <!-- Os dados do JSON serão carregados aqui -->
+    </div>
+
+</section>
