@@ -1,41 +1,45 @@
 
+// Importando o arquivo JSON diretamente
+//const dados = require('../json/config.json'); 
 
-try {    
-    function loadConfigData() {
-        console.log('Iniciando o carregamento do JSON...');
-        fetch('/sistema/json/config.json')
-            .then(response => {
-                console.log('Resposta recebida:', response);
-                // Verifica se a resposta foi bem-sucedida
-                if (response.ok) {
-                    console.log('Carregamento do JSON: true');
-                    return response.json();  // Retorna o conteúdo JSON se carregado com sucesso
-                } else {
-                    console.log('Carregamento do JSON: false');
-                    throw new Error('Falha ao carregar o JSON');
-                }
-            })
-            .then(data => {
-                // Aqui você pode trabalhar com os dados carregados
-                console.log('Dados do JSON:', data);
-                // Armazena os dados em um array
-                const configArray = Object.entries(data);
-                console.log('Array de Configurações:', configArray);
+// Exibindo os dados no console
+//console.log(dados);
+//console.log(dados.siteMessage);
 
-                // Exemplo de como usar os dados carregados
-                document.getElementById('siteName').value = data.siteName || '';
-                document.getElementById('siteEmail').value = data.siteEmail || '';
-                document.getElementById('welcomeTitle').value = data.welcomeTitle || '';
-                document.getElementById('siteMessage').innerText = data.siteMessage || '';
-            })
-            .catch(error => {
-                console.error('Erro ao carregar o JSON:', error);
-            });
+// dados.forEach(pessoa => {
+//     if (Number(pessoa.idade) > 30) {
+//         console.log(`Nome: ${pessoa.nome}`);
+//         console.log(`Idade: ${pessoa.idade}`);
+//         console.log(`Hobbies: ${pessoa.hobbies.join(', ')}`);
+//         console.log('----------------------');
+//     }
+// })
+
+
+    
+const fs = require('fs').promises;
+const path = require('path');
+
+const filePath = path.resolve(__dirname, '../json/config.json');
+
+async function buscarArquivo() {
+    try {
+        const arquivo = await fs.readFile(filePath, 'utf-8').then(); // Lendo o arquivo corretamente;
+        const textoDoArquivo = JSON.parse(arquivo); // Convertendo o arquivo para JSON
+        console.log(`
+            Nome do site: ${textoDoArquivo.siteName},
+            E-mail: ${textoDoArquivo.siteEmail},
+            Boas Vindas: ${textoDoArquivo.welcomeTitle},
+            Mensagem de Boas Vindas: ${textoDoArquivo.siteMessage},
+            Logo do site: ${textoDoArquivo.siteLogo}            
+            `); // Exibe o conteúdo do arquivo   
+
+    } catch (error) {
+        console.log('Erro ao ler o arquivo:', error);
+
+    } finally {
+        console.log('Finalizou a busca pelo arquivo');
     }
-
-    // Chama a função quando o DOM for carregado
-    document.addEventListener('DOMContentLoaded', loadConfigData);
-    loadConfigData();
-} catch {
-    console.log('fudeu');
 }
+
+buscarArquivo();
